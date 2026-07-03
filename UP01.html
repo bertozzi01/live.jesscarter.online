@@ -335,7 +335,7 @@
           }, 700);
       }
 
-      // Observer to trigger Slot Machine EXACTLY when the div becomes visible
+      // Observer to trigger Slot Machine exactly when the div becomes visible
       const observer = new MutationObserver((mutations) => {
           mutations.forEach((mutation) => {
               if (window.getComputedStyle(reveal).display !== 'none' && !slotMachineStarted) {
