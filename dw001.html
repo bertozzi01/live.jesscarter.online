@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://app.kashpay.com.br/scripts/upsell-processor.js"></script>
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+  <script>
+  window.pixelId = "6a3035128fa0b7b40f1b4922";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FINAL WARNING - Golden Ticket Expiring</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    .bg-site { background-color: #020617; }
+    .panel-gradient {
+      background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+    }
+    .golden-glow {
+      text-shadow: 0 0 15px rgba(234, 179, 8, 0.6);
+    }
+    
+    /* Golden Ticket CSS Animation & Styling */
+    @keyframes goldenPulse {
+        0% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(255, 223, 115, 0.8); }
+        100% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+    }
+
+    .golden-ticket-bg {
+        background: linear-gradient(135deg, #C59334 0%, #E8C86A 25%, #FFF091 50%, #E8C86A 75%, #A67521 100%);
+        animation: goldenPulse 2s infinite ease-in-out;
+    }
+
+    .ticket-border-inner {
+        border: 2px solid #2d2006;
+        position: relative;
+    }
+
+    .ticket-border-inner::before {
+        content: '';
+        position: absolute;
+        top: 2px; left: 2px; right: 2px; bottom: 2px;
+        border: 1px dashed #2d2006;
+    }
+  </style>
+</head>
+
+<body class="bg-site text-white font-sans antialiased selection:bg-yellow-500 selection:text-black">
+
+<header class="bg-red-700 px-4 py-2 text-center shadow-lg border-b border-red-500">
+    <p class="text-white font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
+        <i class="fas fa-exclamation-circle mr-2"></i> Final Warning: Do NOT Close This Page
+    </p>
+</header>
+
+<main class="max-w-3xl mx-auto px-4 py-10 sm:py-16">
+    
+    <div class="text-center mb-8">
+        <h1 class="text-4xl sm:text-5xl font-black leading-tight mb-6 tracking-tight text-white uppercase">
+            I CAN'T BELIEVE YOU JUST DID THAT. ARE YOU REALLY LETTING YOUR <span class="text-yellow-500 underline decoration-yellow-600 golden-glow">GOLDEN TICKET</span> BURN?
+        </h1>
+        <p class="text-slate-300 text-xl sm:text-2xl font-medium italic border-l-4 border-yellow-500 pl-4 inline-block text-left">
+            "I paused the system. Your 1-on-1 Mentorship ticket is still active, but it's about to be permanently transferred to the next guy in line."
+        </p>
+    </div>
+
+    <!-- CSS Golden Ticket Display -->
+    <div class="w-full flex justify-center mb-12 mt-8 relative z-10">
+        <div class="golden-ticket-bg rounded-lg p-2 w-full max-w-sm relative overflow-hidden shadow-2xl transform rotate-1">
+            <div class="ticket-border-inner p-6 md:p-8 flex flex-col items-center justify-center relative bg-opacity-90">
+                <p class="text-[#2d2006] font-bold tracking-[0.2em] text-xs md:text-sm mb-3 flex items-center gap-2">
+                    <span>★</span> 123456789 <span>★</span>
+                </p>
+                <div class="w-2/3 h-[1px] bg-[#2d2006] mb-3"></div>
+                <h2 class="text-4xl md:text-5xl font-serif font-black text-center text-[#2d2006] tracking-tighter uppercase mb-2 leading-none">
+                    GOLDEN<br>TICKET
+                </h2>
+                <div class="w-2/3 h-[1px] bg-[#2d2006] mt-3 mb-3"></div>
+                <p class="text-[#2d2006] font-bold tracking-[0.2em] text-xs md:text-sm flex items-center gap-2">
+                    <span>★</span> ADMIT ONE <span>★</span>
+                </p>
+            </div>
+            <!-- Recortes do Ticket com a cor do fundo (#020617) para sumirem perfeitamente -->
+            <div class="absolute top-1/2 -left-4 w-8 h-8 bg-[#020617] rounded-full transform -translate-y-1/2"></div>
+            <div class="absolute top-1/2 -right-4 w-8 h-8 bg-[#020617] rounded-full transform -translate-y-1/2"></div>
+        </div>
+    </div>
+
+    <!-- Timer Alert -->
+    <div class="bg-red-950/40 border border-red-600/50 rounded-2xl p-6 mb-12 text-center shadow-[0_0_25px_rgba(220,38,38,0.15)] relative z-0 -mt-8 pt-10">
+        <p class="text-xs sm:text-sm uppercase font-bold text-red-400 mb-2 tracking-widest flex items-center justify-center gap-2">
+            <i class="fas fa-clock animate-pulse"></i> Your VIP Mentorship spot expires in:
+        </p>
+        <div id="timer" class="text-5xl sm:text-6xl font-mono font-black text-yellow-500 golden-glow tracking-tighter">03:00</div>
+    </div>
+
+    <!-- Sales Copy Panel -->
+    <div class="panel-gradient border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl space-y-6 text-slate-300 text-lg sm:text-xl leading-relaxed">
+        
+        <p>Look, I get it. Maybe $127 was a bit steep for you today. Or maybe you're still on the fence about whether you really need the <strong class="text-white">Advanced Sex Mastery</strong>.</p>
+
+        <p>But let's be brutally honest: the system selected <strong class="text-yellow-500">YOU</strong> for the Golden Ticket. You won the 45-Day 1-on-1 Mentorship (a true $5,000 value), and throwing this away because of a momentary hesitation is a mistake you will regret tonight when you are alone in bed with her.</p>
+
+        <p>I absolutely do not want you to lose this once-in-a-lifetime opportunity. So, I am going to do something crazy to make this an absolute no-brainer for you.</p>
+
+        <div class="bg-slate-900/80 border-l-4 border-yellow-500 p-6 rounded-r-xl my-8 shadow-lg">
+            <p class="text-white font-bold mb-3 uppercase tracking-wider text-sm text-yellow-500">MY FINAL VIP COMPROMISE:</p>
+            <p class="text-base sm:text-lg">You take EVERYTHING. The Advanced Sex Mastery, the Honey & Baking Soda Protocol, the Natural Libido Recipe, and <strong class="text-white uppercase border-b border-yellow-500">you keep your FREE Mentorship Golden Ticket</strong>.</p>
+        </div>
+
+        <p class="text-center text-xl sm:text-2xl pt-4">
+            Take the entire Elite Package right now for <br>
+            <span class="text-red-500 font-bold line-through text-2xl mr-3">$127</span> 
+            <span class="text-5xl font-black text-green-400 drop-shadow-md">JUST $87</span>
+        </p>
+
+        <!-- Call to Action Area -->
+        <div class="bg-black/80 border-2 border-yellow-600/50 rounded-3xl p-8 text-center mt-10 shadow-[0_0_40px_rgba(234,179,8,0.15)]">
+            
+            <p class="text-yellow-500 text-sm font-black uppercase mb-6 tracking-widest">Final Discount Applied:</p>
+
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 16px;">
+                <button onclick="acceptUpsell('https://app.kashpay.com.br/u/8b1f6f12e4ff0aae')" class="w-full sm:w-[90%] bg-green-600 hover:bg-green-500 text-white font-black text-lg sm:text-xl uppercase py-5 rounded-xl transition-all border-b-4 border-green-800 hover:translate-y-[2px] hover:border-b-0 shadow-lg">
+                    YES, I'LL TAKE EVERYTHING FOR JUST $87
+                </button>
+                
+                <button onclick="declineUpsell('https://app.kashpay.com.br/u/8b1f6f12e4ff0aae')" class="text-slate-500 font-semibold text-xs sm:text-sm underline hover:text-slate-300 transition-colors mt-2">
+                    No, I'll pass. I want to let my Golden Ticket burn and lose my 1-on-1 access.
+                </button>
+            </div>
+        </div>
+
+        <p class="text-center text-slate-400 italic text-base mt-6">
+            Tomorrow night, when you’re with her, you’ll wish you had made the right decision now. <span class="text-white font-bold">Don't let her down.</span>
+        </p>
+    </div>
+
+</main>
+
+<footer class="py-12 text-center text-[10px] text-slate-800 uppercase tracking-widest">
+    © 2026 Advanced Sex Mastery. All Rights Reserved.
+</footer>
+
+<script>
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        var countdown = setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            display.textContent = minutes + ":" + seconds;
+            if (--timer < 0) {
+                clearInterval(countdown);
+                display.textContent = "00:00";
+            }
+        }, 1000);
+    }
+
+    window.onload = function () {
+        var threeMinutes = 60 * 3,
+            display = document.querySelector('#timer');
+        startTimer(threeMinutes, display);
+    };
+</script>
+
+</body>
+</html>
