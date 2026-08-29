@@ -150,62 +150,30 @@
       color: var(--text-muted);
     }
 
-    /* Slider de Desbloqueio Interativo */
-    .slider-container {
-      position: relative;
+    /* Estilo do Botão Normal de Clique */
+    .cta-button {
+      display: block;
       width: 100%;
-      height: 58px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 30px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      padding: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      margin-bottom: 18px;
-      user-select: none;
-    }
-    .slider-text {
-      position: absolute;
-      width: 100%;
+      background: linear-gradient(135deg, #e50914, #b20710);
+      color: #ffffff;
       text-align: center;
-      font-size: 14px;
-      font-weight: 600;
+      padding: 16px;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: rgba(255, 255, 255, 0.6);
-      pointer-events: none;
-      transition: opacity 0.2s;
-    }
-    .slider-thumb {
-      position: absolute;
-      left: 4px;
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #e50914, #b20710);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: grab;
-      z-index: 3;
+      text-decoration: none;
       box-shadow: 0 4px 15px rgba(229, 9, 20, 0.5);
-      transition: background 0.2s;
+      margin-bottom: 18px;
+      transition: transform 0.2s, opacity 0.2s;
     }
-    .slider-thumb svg {
-      width: 20px;
-      height: 20px;
-      fill: #fff;
+    .cta-button:hover {
+      opacity: 0.95;
+      transform: translateY(-2px);
     }
-    .slider-fill {
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      background: rgba(229, 9, 20, 0.25);
-      border-radius: 30px;
-      width: 0%;
-      z-index: 1;
+    .cta-button:active {
+      transform: translateY(0);
     }
 
     .footer-secure {
@@ -236,18 +204,18 @@
         The <span>50-Second Finger Trigger</span> That Can Make Her <span>Soak The Bed</span>
       </h1>
 
-      <!-- Caixa do Vídeo (Busca na pasta assets/result.mp4) -->
+      <!-- Caixa do Vídeo (Apontando para o vídeo result.mp4 na raiz) -->
       <div class="video-box">
         <div class="badge-exclusive">Exclusive</div>
         <video autoplay loop muted playsinline preload="metadata">
-          <source src="assets/result.mp4" type="video/mp4">
+          <source src="result.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
 
       <p>
         Most men stimulate the wrong spot. 
-        <strong>Roxy Fox reveals in practice with real models</strong> 
+        <strong>Jess Carter reveals in practice with real models</strong> 
         the exact physical trigger and finger movement in this 
         <strong>private demonstration for free</strong>.
       </p>
@@ -258,16 +226,12 @@
         <li><span>✓</span> The #1 mistake most men make</li>
       </ul>
 
-      <h2>Slide to unlock the private lesson</h2>
+      <h2>Click below to unlock the private lesson</h2>
 
-      <!-- Slider Interativo -->
-      <div class="slider-container" id="sliderContainer">
-        <div class="slider-fill" id="sliderFill"></div>
-        <div class="slider-text" id="sliderText">slide to unlock &gt;&gt;&gt;</div>
-        <div class="slider-thumb" id="sliderThumb">
-          <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
-        </div>
-      </div>
+      <!-- Botão Normal de Clique (Substituiu o slider de arrastar) -->
+      <a href="#" id="unlockBtn" class="cta-button">
+        🔓 Unlock Access Now
+      </a>
 
       <div class="footer-secure">
         🔒 18+ Content · Private Access · Unlocks now
@@ -283,77 +247,13 @@
   </div>
 
   <script>
-    // Lógica do botão de deslizar (Slider) com suporte total a PC e Celular
-    const container = document.getElementById('sliderContainer');
-    const thumb = document.getElementById('sliderThumb');
-    const fill = document.getElementById('sliderFill');
-    const text = document.getElementById('sliderText');
-
-    let isDragging = false;
-    let startX = 0;
-    let maxTranslate = 0;
-
-    function initSlider() {
-      maxTranslate = container.offsetWidth - thumb.offsetWidth - 8;
-    }
-
-    window.addEventListener('resize', initSlider);
-    window.addEventListener('load', initSlider);
-
-    function startDrag(e) {
-      isDragging = true;
-      startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-      text.style.opacity = '0.3';
-    }
-
-    function onDrag(e) {
-      if (!isDragging) return;
-      let currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-      let diff = currentX - startX;
-
-      if (diff < 0) diff = 0;
-      if (diff > maxTranslate) diff = maxTranslate;
-
-      thumb.style.transform = `translateX(${diff}px)`;
-      fill.style.width = `${(diff / maxTranslate) * 100}%`;
-
-      // Ao chegar em 85% do arraste, redireciona levando as UTMs
-      if (diff >= maxTranslate * 0.85) {
-        isDragging = false;
-        thumb.style.transform = `translateX(${maxTranslate}px)`;
-        fill.style.width = '100%';
-        text.textContent = 'UNLOCKED!';
-        
-        setTimeout(() => {
-          const queryParams = window.location.search;
-          // ALTERE ABAIXO para o link do seu checkout ou oferta real
-          window.location.href = "checkout.html" + queryParams;
-        }, 300);
-      }
-    }
-
-    function stopDrag() {
-      if (!isDragging) return;
-      isDragging = false;
-      thumb.style.transition = 'transform 0.3s ease';
-      fill.style.transition = 'width 0.3s ease';
-      thumb.style.transform = 'translateX(0px)';
-      fill.style.width = '0%';
-      text.style.opacity = '1';
-      
-      setTimeout(() => {
-        thumb.style.transition = 'none';
-        fill.style.transition = 'none';
-      }, 300);
-    }
-
-    thumb.addEventListener('mousedown', startDrag);
-    window.addEventListener('mousemove', onDrag);
-    window.addEventListener('mouseup', stopDrag);
-
-    thumb.addEventListener('touchstart', startDrag);
-    window.addEventListener('touchmove', onDrag);
-    window.addEventListener('touchend', stopDrag);
+    // Script do Botão: Captura as UTMs e parâmetros atuais e os repassa ao redirecionar para a oferta
+    document.getElementById('unlockBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const queryParams = window.location.search;
+      // ALTERE ABAIXO para o link do seu checkout ou página de destino real
+      window.location.href = "checkout.html" + queryParams;
+    });
 
     // Timer regressivo
     let totalSeconds = 14 * 60 + 59;
