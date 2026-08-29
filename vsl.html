@@ -82,6 +82,7 @@
     }
     h1 span { color: var(--accent); }
 
+    /* Caixa do Vídeo ajustada para 16:9 sem cortes */
     .video-box {
       position: relative;
       width: 100%;
@@ -90,13 +91,13 @@
       background: #000;
       margin-bottom: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      aspect-ratio: 9 / 16;
-      max-height: 500px;
+      aspect-ratio: 16 / 9;
+      max-height: none;
     }
     .video-box video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
 
@@ -204,7 +205,7 @@
         The <span>50-Second Finger Trigger</span> That Can Make Her <span>Soak The Bed</span>
       </h1>
 
-      <!-- Caixa do Vídeo (Apontando para o vídeo result.mp4 na raiz) -->
+      <!-- Caixa do Vídeo (Apontando para result.mp4 na raiz) -->
       <div class="video-box">
         <div class="badge-exclusive">Exclusive</div>
         <video autoplay loop muted playsinline preload="metadata">
@@ -215,7 +216,7 @@
 
       <p>
         Most men stimulate the wrong spot. 
-        <strong>Jess Carter reveals in practice with real models</strong> 
+        <strong>Roxy Fox reveals in practice with real models</strong> 
         the exact physical trigger and finger movement in this 
         <strong>private demonstration for free</strong>.
       </p>
@@ -228,7 +229,7 @@
 
       <h2>Click below to unlock the private lesson</h2>
 
-      <!-- Botão Normal de Clique (Substituiu o slider de arrastar) -->
+      <!-- Botão Normal de Clique -->
       <a href="#" id="unlockBtn" class="cta-button">
         🔓 Unlock Access Now
       </a>
@@ -247,7 +248,7 @@
   </div>
 
   <script>
-    // Script do Botão: Captura as UTMs e parâmetros atuais e os repassa ao redirecionar para a oferta
+    // Script do Botão: Captura as UTMs atuais e as repassa ao redirecionar para a oferta
     document.getElementById('unlockBtn').addEventListener('click', function(e) {
       e.preventDefault();
       const queryParams = window.location.search;
